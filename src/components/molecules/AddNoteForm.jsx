@@ -17,7 +17,7 @@ export default class AddNoteForm extends React.Component {
 				archived: false,
 				createdAt: new Date(),
 			},
-			maxLength: 50
+			maxLength: 50,
 		};
 
 		this.onTitleChangeHandler = this.onTitleChangeHandler.bind(this);
@@ -25,14 +25,14 @@ export default class AddNoteForm extends React.Component {
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 
-	onTitleChangeHandler = (text,length) => {
+	onTitleChangeHandler = (text, length) => {
 		this.setState(() => {
 			return {
 				formData: {
 					...this.state.formData,
 					title: text,
 				},
-				maxLength : length
+				maxLength: length,
 			};
 		});
 	};
@@ -56,7 +56,7 @@ export default class AddNoteForm extends React.Component {
 			return;
 		}
 		this.props.onAddNote(this.state.formData);
-		toast.success("New note was added")
+		toast.success("New note was added");
 	};
 
 	render() {

@@ -21,39 +21,33 @@ export default class NoteApp extends React.Component {
 		this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
 	}
 
-	onAddNoteHandler(note){
-		this.setState((prevState)=>{
-			return{
-				notes : [note, ...prevState.notes, ],
-				unfilteredNotes : [note, ...prevState.unfilteredNotes, ]
-			}
-		})
+	onAddNoteHandler(note) {
+		this.setState((prevState) => {
+			return {
+				notes: [note, ...prevState.notes],
+				unfilteredNotes: [note, ...prevState.unfilteredNotes],
+			};
+		});
 	}
 
-	onSearchHandler(text){
-		if(text.length !== 0 ){
-			this.setState(()=>{
-				return{
-					notes : this.state.unfilteredNotes
-					.filter(unfilteredNote => unfilteredNote.title
-						.toLowerCase()
-						.includes(text.toLowerCase())
-					|| unfilteredNote.body
-						.toLowerCase()
-						.includes(text.toLowerCase())
-					)
-					
-				}
-			})
+	onSearchHandler(text) {
+		if (text.length !== 0) {
+			this.setState(() => {
+				return {
+					notes: this.state.unfilteredNotes.filter(
+						(unfilteredNote) =>
+							unfilteredNote.title.toLowerCase().includes(text.toLowerCase()) ||
+							unfilteredNote.body.toLowerCase().includes(text.toLowerCase()),
+					),
+				};
+			});
 		} else {
-			this.setState(()=>{
-				return{
-					notes: this.state.unfilteredNotes
-				}
-			})
-			
+			this.setState(() => {
+				return {
+					notes: this.state.unfilteredNotes,
+				};
+			});
 		}
-
 	}
 
 	onDeleteHandler(id) {
@@ -91,7 +85,7 @@ export default class NoteApp extends React.Component {
 
 	render() {
 		return (
-			<main className=" min-h-screen flex flex-col justify-between">
+			<main className=' min-h-screen flex flex-col justify-between'>
 				<Header onType={this.onSearchHandler} placeholder='Type keywords to search notes' />
 				<NoteBody
 					noteList={this.state.notes}
