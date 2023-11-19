@@ -61,7 +61,7 @@ export default class AddNoteForm extends React.Component {
 
 	render() {
 		return (
-			<form className='flex flex-col gap-2 min-w-full w-full p-4 ' action=''>
+			<form className='flex flex-col w-full min-w-full gap-2 p-4 ' action=''>
 				<p className='text-xs font-bold text-right'>Character left: {this.state.maxLength}</p>
 				<Input onType={this.onTitleChangeHandler} placeholder={this.props.placeholder} maxLength={50} />
 				<TextArea onContentChange={this.onContentChangeHandler} />

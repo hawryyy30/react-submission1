@@ -15,7 +15,7 @@ export default function Input({ onType, placeholder, maxLength }) {
 	return (
 		<input
 			type='text'
-			className=' w-full rounded-md p-2 border-solid border-2 border-black focus:outline-none'
+			className='w-full p-2 border-2 border-black border-solid rounded-md focus:outline-none'
 			placeholder={placeholder}
 			value={inputValue}
 			onChange={onSearchType}

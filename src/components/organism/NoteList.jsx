@@ -4,7 +4,7 @@ import EmptyState from "../molecules/EmptyState";
 
 export default function NoteList({ noteList, onArchive, onDelete }) {
 	return (
-		<section className='note-list w-100 gap-2 p-4 '>
+		<section className='gap-2 p-4 note-list w-100 '>
 			{noteList.length !== 0 ? (
 				noteList.map((note, index) => {
 					return (

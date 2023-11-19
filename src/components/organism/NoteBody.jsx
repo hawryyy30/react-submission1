@@ -3,8 +3,8 @@ import AddNoteForm from "../molecules/AddNoteForm";
 
 export default function NoteBody({ onAddNote, placeholder, noteList, onArchive, onDelete }) {
 	return (
-		<section className='flex flex-col w-full justify-between gap-4 p-8'>
-			<div id='add-note' className='flex flex-col items-center text-center  '>
+		<section className='flex flex-col justify-between w-full gap-4 p-8'>
+			<div id='add-note' className='flex flex-col items-center text-center '>
 				<h2 className='text-4xl font-bold '>What do you have in mind?</h2>
 				<p className='pb-4'>Ideas often come in pieces. Write them down as you piece them together.</p>
 			</div>

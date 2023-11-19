@@ -23,7 +23,7 @@ export default class NoteApp extends React.Component {
 				unfilteredNotes: [note, ...prevState.unfilteredNotes],
 			};
 		});
-	}
+	};
 
 	onSearchHandler = (text) => {
 		if (text.length !== 0) {
@@ -43,7 +43,7 @@ export default class NoteApp extends React.Component {
 				};
 			});
 		}
-	}
+	};
 
 	onDeleteHandler = (id) => {
 		const confirmed = confirm("Are you sure you want to delete this note?");
@@ -59,7 +59,7 @@ export default class NoteApp extends React.Component {
 			};
 		});
 		toast.success("Note deleted!");
-	}
+	};
 
 	onArchiveHandler = (id) => {
 		const note = this.state.unfilteredNotes.find((note) => note.id === id);
@@ -76,11 +76,11 @@ export default class NoteApp extends React.Component {
 				unfilteredNotes: [...prevState.unfilteredNotes.filter((note) => note.id !== id), movedNote],
 			};
 		});
-	}
+	};
 
 	render() {
 		return (
-			<main className=' min-h-screen flex flex-col justify-between'>
+			<main className='flex flex-col justify-between min-h-screen '>
 				<Header onType={this.onSearchHandler} placeholder='Type keywords to search notes' />
 				<NoteBody
 					noteList={this.state.notes}
