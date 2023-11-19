@@ -14,14 +14,9 @@ export default class NoteApp extends React.Component {
 			notes: getInitialData(),
 			unfilteredNotes: getInitialData(),
 		};
-
-		this.onDeleteHandler = this.onDeleteHandler.bind(this);
-		this.onArchiveHandler = this.onArchiveHandler.bind(this);
-		this.onSearchHandler = this.onSearchHandler.bind(this);
-		this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
 	}
 
-	onAddNoteHandler(note) {
+	onAddNoteHandler = (note) => {
 		this.setState((prevState) => {
 			return {
 				notes: [note, ...prevState.notes],
@@ -30,7 +25,7 @@ export default class NoteApp extends React.Component {
 		});
 	}
 
-	onSearchHandler(text) {
+	onSearchHandler = (text) => {
 		if (text.length !== 0) {
 			this.setState(() => {
 				return {
@@ -50,7 +45,7 @@ export default class NoteApp extends React.Component {
 		}
 	}
 
-	onDeleteHandler(id) {
+	onDeleteHandler = (id) => {
 		const confirmed = confirm("Are you sure you want to delete this note?");
 		if (confirmed !== true) {
 			toast.error("Note not deleted");
@@ -66,7 +61,7 @@ export default class NoteApp extends React.Component {
 		toast.success("Note deleted!");
 	}
 
-	onArchiveHandler(id) {
+	onArchiveHandler = (id) => {
 		const note = this.state.unfilteredNotes.find((note) => note.id === id);
 		const movedNote = { ...note, archived: !note.archived };
 		if (movedNote.archived) {
